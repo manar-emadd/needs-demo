@@ -1,0 +1,37 @@
+name: Number Pipeline
+
+on: push
+
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ckeckout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run number check 
+        run: python cjeck_numbers.py
+
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: simulate build setup 
+        run: echo "🔨 Building the project..."
+
+  notify:
+    needs: build 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: sucess massage
+        run: echo "✅ Everything passed! Pipeline complete."   
+     
