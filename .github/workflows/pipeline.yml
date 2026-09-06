@@ -42,6 +42,5 @@ jobs:
       - name: Say hello using env variable
         env:
             MY_NAME: Manar
-            run: echo "Hello, $MY_NAME! "      
-     
+        run: echo "Hello, $MY_NAME! "      
      
