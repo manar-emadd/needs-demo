@@ -34,4 +34,13 @@ jobs:
     steps:
       - name: sucess massage
         run: echo "✅ Everything passed! Pipeline complete."   
+
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say hello using env variable
+        env:
+            MY_NAME: Manar
+            run: echo "Hello, $MY_NAME! "      
      
