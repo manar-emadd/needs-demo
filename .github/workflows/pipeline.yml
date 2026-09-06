@@ -16,7 +16,7 @@ jobs:
           python-version: '3.11'
 
       - name: Run number check 
-        run: python cjeck_numbers.py
+        run: python check_numbers.py
 
 
   build:
