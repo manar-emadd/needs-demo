@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Ckeckout Code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Set Up python
@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run number check 
+      - name: Run number check
         run: python check_numbers.py
 
   build:
@@ -23,16 +23,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: simulate build setup 
-        run: echo "🔨 Building the project..."
+      - name: simulate build setup
+        run: echo "Building the project..."
 
   notify:
-    needs: build 
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - name: sucess massage
-        run: echo "✅ Everything passed! Pipeline complete."   
+      - name: success message
+        run: echo "Everything passed! Pipeline complete."
 
   greet:
     runs-on: ubuntu-latest
@@ -51,5 +51,3 @@ jobs:
         env:
           MY_SECRET: ${{ secrets.SECRET_MESSAGE }}
         run: echo "The secret says: $MY_SECRET"
-
-        
