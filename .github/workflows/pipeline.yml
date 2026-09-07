@@ -18,7 +18,6 @@ jobs:
       - name: Run number check 
         run: python check_numbers.py
 
-
   build:
     needs: test
     runs-on: ubuntu-latest
@@ -41,6 +40,14 @@ jobs:
     steps:
       - name: Say hello using env variable
         env:
-            MY_NAME: Manar
-        run: echo "Hello, $MY_NAME! "      
-     
+          MY_NAME: Manar
+        run: echo "Hello, $MY_NAME!"
+
+  show_secret:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print the secret message
+        env:
+          MY_SECRET: ${{ secrets.SECRET_MESSAGE }}
+        run: echo "The secret says: $MY_SECRET"
